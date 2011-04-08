@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Main!</string>
+    <string name="app_name">EssEmmEss</string>
+    
+    <string name="tag_title">Tag</string>
+    <string name="message_title">Message</string>
+    <string name="btn_title">Submit</string>
+    <string name="message_characters_left">(0/256)</string>
+    <string name="tag_characters_left">(0/32)</string>
+</resources>

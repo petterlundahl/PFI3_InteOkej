@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background"
+    
+    >
+    
+    
+    <ScrollView
+	android:id="@+id/scrllvwNo1" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	>	
+	
+    
+    <LinearLayout
+		android:orientation="vertical"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_gravity="center"
+		android:padding="40dip"
+    >
+	<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+			>
+	
+		<TextView 	android:text="@string/tag_title" 
+				android:id="@+id/TextView01" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:textColor="@color/title"
+				android:typeface="monospace"
+				android:textSize="18sp"
+				/>
+				
+		<TextView 	android:text="@string/tag_characters_left" 
+				android:id="@+id/TextView04" 
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:textColor="@color/characters_left"
+				android:typeface="monospace"
+				android:textSize="18sp"
+			/>
+</LinearLayout>
+			
+			
+<EditText	android:id="@+id/EditText01"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:typeface="monospace"
+			android:maxLength="32"
+			android:textColor="@color/input_text"
+			/>
+			
+	<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+			>
+
+		<TextView 	android:text="@string/message_title" 
+					android:id="@+id/TextView02" 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content"
+					android:textColor="@color/title"
+					android:typeface="monospace"
+					android:textSize="18sp"
+			/>
+			
+		<TextView 	android:text="@string/message_characters_left" 
+					android:id="@+id/TextView03" 
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content"
+					android:textColor="@color/characters_left"
+					android:typeface="monospace"
+					android:textSize="18sp"
+			/>
+	</LinearLayout>
+	
+		
+
+<EditText	android:id="@+id/EditText02"
+			android:layout_width="fill_parent" 
+			android:layout_height="100dip"
+			android:typeface="monospace"
+			android:maxLength="256"
+			android:textColor="@color/input_text"
+			android:scrollbars="vertical"
+			/>
+		
+		<LinearLayout
+			
+			android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+		>
+<Button 	android:text="@string/btn_title" 
+			android:id="@+id/Button01" 
+			android:layout_width="100px" 
+			android:layout_height="wrap_content"
+			android:typeface="monospace"
+			
+			/>
+		</LinearLayout>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>
+

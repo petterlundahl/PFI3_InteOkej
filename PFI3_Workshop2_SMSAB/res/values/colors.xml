@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<color name="background">#ddffffff</color>
+	<color name="title">#ff000000</color>
+	<color name="input_text">#ff9999ee</color>
+	<color name="characters_left">#ff999999</color>
+</resources>
