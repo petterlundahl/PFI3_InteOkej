@@ -1,14 +1,19 @@
 package se.mah.pfi3.lundahl;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements Callback {
     
@@ -16,9 +21,12 @@ public class MainActivity extends Activity implements Callback {
 	private Handler handler;
 	private GameView gameView;
 	private TextView timeText;
+	private TextView scoreText;
+	private AlertDialog.Builder alertbox;
+	private Vibrator vibrator;
 	
 	private boolean running;
-	private float secondsLeft = 30 * (1000 / GameThread.DELAY);
+	private double secondsLeft = 30;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,32 +39,56 @@ public class MainActivity extends Activity implements Callback {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         		WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
+        handler = new Handler(this);
+        gameThread = new GameThread(handler);
+        gameThread.start();
+        
+        gameView = (GameView) findViewById(R.id.view);
+        timeText = (TextView) findViewById(R.id.timeText);
+        scoreText = (TextView) findViewById(R.id.scoreText);
+        
+        alertbox = new AlertDialog.Builder(this);
+        
+        alertbox.setNeutralButton("Play again", new DialogInterface.OnClickListener() {
+ 
+                public void onClick(DialogInterface arg0, int arg1) {
+                    newGame();
+                }
+            });
         
         newGame();
     }
 
 	@Override
 	public boolean handleMessage(Message arg0) {
-		gameView.updateView();
 		
 		if(running){
-			secondsLeft -= (1000 / GameThread.DELAY);
-			//timeText.se
+			secondsLeft -= .1;
+			timeText.setText( Integer.toString( (int) secondsLeft) );
+			scoreText.setText( Integer.toString( (int) gameView.getScore()) );
+			
+			gameView.updateView();
+			
+			if(secondsLeft < 1){
+				endGame();
+			}
 		}
 		
 		return false;
 	}
 	
-	public void newGame()
+	private void newGame()
 	{
-		secondsLeft = 30 * (1000 / GameThread.DELAY);
-		
-		handler = new Handler(this);
-        gameThread = new GameThread(handler);
-        gameThread.start();
-        
-        gameView = (GameView) findViewById(R.id.view);
-        timeText = (TextView) findViewById(R.id.timeText);
+		gameView.newGame();
+		secondsLeft = 30;
+		running = true;
+	}
+	
+	private void endGame()
+	{
+		running = false;
+		alertbox.setMessage("Time up! You wacked " + gameView.getScore() + " moles!");
+		alertbox.show();
 	}
 	
 }

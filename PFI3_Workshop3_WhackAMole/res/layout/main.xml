@@ -9,12 +9,14 @@
     	android:orientation="horizontal"
     	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content"
+    	android:paddingLeft ="20dip"
     	>
     
 		<TextView  
+			
     		android:layout_width="wrap_content" 
     		android:layout_height="wrap_content" 
-    		android:text="TIME: "
+    		android:text="Time left  "
     		android:textColor="#ff000000"
     		android:textSize="20dip"
     	/>
@@ -24,8 +26,26 @@
     		android:layout_width="wrap_content" 
     		android:layout_height="wrap_content" 
     		android:text="0"
+    		android:textColor="#ffff0000"
+    		android:textSize="26dip"
+    	/>
+    	
+    	<TextView 
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:text="   Score  "
     		android:textColor="#ff000000"
     		android:textSize="20dip"
+    	/>
+    	
+    	<TextView  
+    		
+    		android:id="@+id/scoreText"
+    		android:layout_width="wrap_content" 
+    		android:layout_height="wrap_content" 
+    		android:text="0"
+    		android:textColor="#ff0000ff"
+    		android:textSize="26dip"
     	/>
     
     </LinearLayout>

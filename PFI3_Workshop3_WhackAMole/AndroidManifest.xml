@@ -3,7 +3,9 @@
       package="se.mah.pfi3.lundahl"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+      <uses-permission android:name="android.permission.VIBRATE"/>
+      
+    <application android:icon="@drawable/mole" android:label="@string/app_name">
         <activity android:name=".MainActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="landscape">
