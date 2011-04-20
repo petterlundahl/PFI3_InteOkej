@@ -3,6 +3,7 @@
 	<name>PFI3_Workshop2_SMSAB</name>
 	<comment></comment>
 	<projects>
+		<project>agoransson-pfi3_essemmesslib-db17d84</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

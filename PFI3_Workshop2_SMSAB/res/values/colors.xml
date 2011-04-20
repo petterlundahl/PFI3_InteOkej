@@ -4,4 +4,5 @@
 	<color name="title">#ff000000</color>
 	<color name="input_text">#ff9999ee</color>
 	<color name="characters_left">#ff999999</color>
+	<color name="list_top">#ff777777</color>
 </resources>

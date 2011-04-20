@@ -29,7 +29,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Main extends Activity implements OnClickListener {
+import se.k3.goransson.andreas.essemmesslib.Essemmess;
+import se.k3.goransson.andreas.essemmesslib.EssemmessListener;
+import se.k3.goransson.andreas.essemmesslib.EssemmessLoginEvent;
+import se.k3.goransson.andreas.essemmesslib.EssemmessPublishEvent;
+import se.k3.goransson.andreas.essemmesslib.EssemmessReadEvent;
+
+
+public class Main extends Activity implements OnClickListener, EssemmessListener {
     
 	private Button btn;
 	private EditText messageTextField;
@@ -47,6 +54,8 @@ public class Main extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        Login.essemess.addEssemmessEventListener(this);
         
         btn = (Button) findViewById(R.id.Button01);
         
@@ -88,6 +97,16 @@ public class Main extends Activity implements OnClickListener {
 			public void afterTextChanged(Editable s) {
 			}
 		});
+        
+        Button browseButton = (Button) findViewById(R.id.Button02);
+        browseButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), ReadActivity.class);
+				startActivityForResult(intent, 0);
+			}
+		});
     }
 
 	@Override
@@ -95,13 +114,17 @@ public class Main extends Activity implements OnClickListener {
 		message = messageTextField.getText().toString();
 		tag = tagTextField.getText().toString();
 		
-		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+		if( !message.equals("") && !tag.equals("") )
+		{
+			Login.essemess.post(message, tag);
+			messageTextField.setText("");
+			tagTextField.setText("");
+		} else {
+			Toast.makeText(getApplicationContext(), "Please enter tag and message", Toast.LENGTH_LONG).show();
+		}
 		
-		messageTextField.setText("");
-		tagTextField.setText("");
-		
-		//sendSMS(message);
 	}
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,12 +133,20 @@ public class Main extends Activity implements OnClickListener {
         return true;
     }
 	
-	
-	
-	@SuppressWarnings("deprecation")
-	private void sendSMS(String msg)
-	{
-		SmsManager smsManager = SmsManager.getDefault();
-	    smsManager.sendTextMessage("0046708921714", null, msg, null, null);
+
+	@Override
+	public void NewEssemmessPosts(EssemmessReadEvent evt) {
+		
+	}
+
+	@Override
+	public void NewEssemmessLogin(EssemmessLoginEvent evt) {
+		
+	}
+
+	@Override
+	public void NewEssemmessPublish(EssemmessPublishEvent evt) {
+		// TODO Auto-generated method stub
+		Toast.makeText(this, "Posted sucessfully", Toast.LENGTH_LONG).show();
 	}
 }
