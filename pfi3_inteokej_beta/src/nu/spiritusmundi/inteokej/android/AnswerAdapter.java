@@ -47,6 +47,10 @@ public class AnswerAdapter extends ArrayAdapter<Answer> {
 		answerLabel.setText(myAnswer.getContent());
 		numLikesText.setText(Integer.toString(myAnswer.getUsersWhoLikeThis().size()));
 		
+		if(myAnswer.getUsersWhoLikeThis().indexOf(FakeDatabase.getCurrentUserName()) != -1)
+		{
+			likeButton.setBackgroundResource(R.drawable.gilla);
+		}
 		
 		return row;
 	}

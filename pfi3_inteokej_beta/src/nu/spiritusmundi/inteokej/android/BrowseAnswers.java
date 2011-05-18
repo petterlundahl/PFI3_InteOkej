@@ -37,6 +37,7 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 	private TextView numSupportsText;
 	private TextView numAnswersText;
 	private TextView numViewsText;
+	private SupportButton supportButton;
 	
 	private View viewFooter;
 	private View viewHeader;
@@ -66,12 +67,12 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		
 		editTextReplyBox = (EditText) findViewById(R.id.editTextReplyBox);
 		
-		SupportButton supportButton = (SupportButton) viewHeader.findViewById(R.id.supportbutton);
-		
+		supportButton = (SupportButton) viewHeader.findViewById(R.id.supportbutton);
 		supportButton.setOnClickListener(this);
 		
-		
-		
+		if(question.getUsersWhoSupportsThis().indexOf(FakeDatabase.getCurrentUserName()) != -1){
+			supportButton.setBackgroundResource(R.drawable.stod);
+		} 
 		
 		updateTextViews();
 		
@@ -106,27 +107,23 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		
 		if(FakeDatabase.likeAnswer(answer)){
 			Toast.makeText(this, "Nu har du gillat det här svaret!", 1000).show();
+			likeButton.setBackgroundResource(R.drawable.gilla);
 		} else {
 			Toast.makeText(this, "Du har redan gillat det här svaret", 1000).show();
 		}
 		
 		likeButton.getTextView().setText(Integer.toString(answer.getUsersWhoLikeThis().size()));
-		
 	}
 	
 
-
-	/*
-	 * onClick for the support button listening. 
-	 * */
 	@Override
 	public void onClick(View arg0) {
 		if(FakeDatabase.supportQuestion(question)){
 			Toast.makeText(this, "Nu har du givit ditt stöd till den här frågan!", 1000).show();
+			supportButton.setBackgroundResource(R.drawable.stod);
 		} else {
 			Toast.makeText(this, "Du har redan givit ditt stöd till den här frågan", 1000).show();
 		}
-		
 		
 		updateTextViews();
 		
