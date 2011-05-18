@@ -33,8 +33,6 @@ public class Login extends Activity implements OnClickListener{
 		EditText userNameText = (EditText) findViewById(R.id.username);
 		String userName = userNameText.getText().toString();
 		
-		Toast.makeText(this, userName, 2000).show();
-		
 		if(!userName.equals("")){
 			FakeDatabase.login(userName);
 			

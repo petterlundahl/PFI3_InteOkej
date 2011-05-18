@@ -8,8 +8,16 @@
 	android:paddingLeft="30dip"
 	android:paddingTop="10dip"
 	android:paddingBottom="10dip"
-	android:orientation="horizontal"
+	android:orientation="vertical"
 	>
+	
+	<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	>
+	
 	<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
@@ -109,5 +117,32 @@
 	/>
 	
 	</LinearLayout>
+	
+	</LinearLayout>
 </LinearLayout>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:gravity="left"
+	
+	>
+	
+	 <TextView
+  	 android:text="Timestamp" 
+     android:id="@+id/timestampanswer" 
+     android:layout_width="wrap_content" 
+     android:layout_height="wrap_content"
+     android:textSize="9dp" android:textColor="#000000"
+     
+     android:paddingLeft="10dip"
+     android:paddingRight="10dip"
+  >
+  
+  </TextView>
+  
+	<nu.spiritusmundi.inteokej.android.FlagButton android:id="@+id/flaganswerbutton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/flagbutton" android:gravity="left" > </nu.spiritusmundi.inteokej.android.FlagButton> 
+	
+	</LinearLayout>
 </LinearLayout>

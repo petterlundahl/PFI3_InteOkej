@@ -17,6 +17,8 @@ public class Answer {
 		
 		usersWhoLikeThis = new ArrayList<String>();
 		usersWhoFlaggedThis = new ArrayList<String>();
+		
+		date = new Date();
 	}
 	
 	
@@ -48,5 +50,9 @@ public class Answer {
 	public ArrayList<String> getUsersWhoFlaggedThis()
 	{
 		return usersWhoFlaggedThis;
+	}
+	public Date getDate()
+	{
+		return date;
 	}
 }

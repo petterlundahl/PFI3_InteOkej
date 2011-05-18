@@ -42,7 +42,7 @@ android:gravity="top"
      ></TextView>
      
       <TextView
-     android:text="Title (e.g. 'Värvare')" 
+     android:text="Värvare" 
      android:id="@+id/browse_answer_header_usertitle_display" 
      android:layout_width="wrap_content" 
      android:layout_height="wrap_content"
@@ -253,16 +253,53 @@ android:background="#FFFFFF"
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="horizontal"
   android:layout_width="fill_parent"
+  android:layout_height="fill_parent" 
+  >
+  
+     <LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="wrap_content"
+  android:layout_height="fill_parent"  
+  android:gravity="left"
+  android:paddingRight="15dip"
+  android:paddingBottom="10dip"
+  android:paddingLeft="10dip"
+  >
+  <TextView
+  	 android:text="Timestamp" 
+     android:id="@+id/timestamptext" 
+     android:layout_width="wrap_content" 
+     android:layout_height="wrap_content"
+     android:textSize="9dp" android:textColor="#000000"
+     android:paddingBottom="10dip"
+     android:paddingLeft="10dip"
+     android:paddingRight="10dip"
+  >
+  
+  </TextView>
+  <nu.spiritusmundi.inteokej.android.FlagButton android:id="@+id/flagbutton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/flagbutton" android:gravity="left" > </nu.spiritusmundi.inteokej.android.FlagButton> 
+  
+   </LinearLayout>
+  
+  <LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="fill_parent"
   android:layout_height="fill_parent"  
   android:gravity="right"
   android:paddingRight="15dip"
   android:paddingBottom="10dip"
   android:paddingLeft="10dip"
-
   >
   
   <nu.spiritusmundi.inteokej.android.SupportButton android:id="@+id/supportbutton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/supportbutton" android:gravity="right" > </nu.spiritusmundi.inteokej.android.SupportButton> 
   
+   </LinearLayout>
+   
+  
+   
+   
   </LinearLayout>
 
 <TextView android:textColor="#000000" android:textSize="15dp" android:paddingTop="2dip" android:paddingLeft="10dip" android:background="#FFCCFF" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/questionViewComment" android:layout_marginTop="1dip" android:text="Svar:" /> 

@@ -8,7 +8,9 @@ import nu.spiritusmundi.inteokej.android.R.layout;
 import nu.spiritusmundi.inteokej.android.R.string;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +40,7 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 	private TextView numAnswersText;
 	private TextView numViewsText;
 	private SupportButton supportButton;
+	private TextView timeStampText;
 	
 	private View viewFooter;
 	private View viewHeader;
@@ -58,8 +61,10 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		textViewQuestionContent = (TextView)viewHeader.findViewById(R.id.questionViewContent);
 		numSupportsText = (TextView) viewHeader.findViewById(R.id.num_support_answerview);
 		numAnswersText = (TextView) viewHeader.findViewById(R.id.num_reply_answerview);
-		
 		numViewsText = (TextView) viewHeader.findViewById(R.id.num_view_answerview);
+		
+		TextView userNameText = (TextView) viewHeader.findViewById(R.id.browse_answer_header_username_display);
+		userNameText.setText(question.getUserName());
 		
 		listView.addHeaderView(viewHeader);
 		listView.addFooterView(viewFooter);
@@ -75,6 +80,12 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		} 
 		
 		updateTextViews();
+		
+		FlagButton flagButton = (FlagButton) viewHeader.findViewById(R.id.flagbutton);
+		flagButton.setOnClickListener(this);		
+		
+		timeStampText = (TextView) viewHeader.findViewById(R.id.timestamptext);
+		timeStampText.setText(question.getDate().toLocaleString());
 		
 	}
 	
@@ -117,15 +128,51 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 	
 
 	@Override
-	public void onClick(View arg0) {
-		if(FakeDatabase.supportQuestion(question)){
-			Toast.makeText(this, "Nu har du givit ditt stöd till den här frågan!", 1000).show();
-			supportButton.setBackgroundResource(R.drawable.stod);
-		} else {
-			Toast.makeText(this, "Du har redan givit ditt stöd till den här frågan", 1000).show();
+	public void onClick(View view) {
+		
+		switch(view.getId()){
+		case R.id.supportbutton:
+			if(FakeDatabase.supportQuestion(question)){
+				Toast.makeText(this, "Nu har du givit ditt stöd till den här frågan!", 1000).show();
+				supportButton.setBackgroundResource(R.drawable.stod);
+				updateTextViews();
+				
+			} else {
+				Toast.makeText(this, "Du har redan givit ditt stöd till den här frågan", 1000).show();
+			}
+			break;
+		case R.id.flagbutton:
+				if(question.getUsersWhoFlaggedThis().indexOf(FakeDatabase.getCurrentUserName()) == -1){
+				
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.setMessage("Är du säker på att du vill anmäla denna fråga?")
+				       .setCancelable(false)
+				       .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				       		FakeDatabase.flagQuestion(question);
+				       		Toast.makeText(BrowseAnswers.this, "Du har flaggat detta meddelande som olämpligt.", 2000);
+
+
+				           }
+				       })
+				       .setNegativeButton("Nej", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				                dialog.cancel();
+				           }
+				       });
+				AlertDialog alert = builder.create();
+				alert.show();
+				
+				
+			} else {
+			Toast.makeText(this, "Du har redan flaggat den här frågan", 2000).show();
+			}
+			break;
 		}
 		
-		updateTextViews();
+		
+		
+		
 		
 	}
 	
