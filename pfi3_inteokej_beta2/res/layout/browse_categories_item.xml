@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="60dip"
+	android:orientation="horizontal"
+	>
+	
+	<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/kategori_knapp"
+	android:orientation="horizontal"
+	>
+	
+	<TextView
+		android:gravity="center"
+		android:id="@+id/category_title"
+		android:textColor="#ff000000"
+		android:text="whatever"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:textSize="22dip"
+	/>
+	
+	
+	
+	
+
+</LinearLayout>
+</LinearLayout>

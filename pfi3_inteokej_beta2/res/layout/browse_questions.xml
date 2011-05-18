@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff"
+    >
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="30dip"
+    android:gravity="center"
+    android:background="#ffeeeeee"
+    
+    >
+    	<Button
+    	android:id="@+id/sortbtn01"
+    	android:background="@color/question_sort_button"
+    	android:text="  Senaste  "
+    	android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textColor="#ff000000"
+        android:textSize="14dip"
+        android:layout_weight="1"
+    	/>
+    	<Button
+    	android:id="@+id/sortbtn02"
+    	android:background="@color/question_sort_button"
+    	android:text="  Hetaste  "
+    	android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textColor="#ff000000"
+        android:textSize="14dip"
+        android:layout_weight="1"
+    	/>
+    	<Button
+    	android:id="@+id/sortbtn03"
+    	android:background="@color/question_sort_button"
+    	android:text="  Obesvarade  "
+    	android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textColor="#ff000000"
+        android:textSize="14dip"
+        android:layout_weight="1"
+    	/>
+    	<Button
+    	android:id="@+id/sortbtn04"
+    	android:background="@color/question_sort_button"
+    	android:text="  Kategorier  "
+    	android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:textColor="#ff000000"
+        android:textSize="14dip"
+        android:layout_weight="1"
+    	/>
+    </LinearLayout>
+    
+    
+	<ListView
+		android:id="@+id/questionlist"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/browse_questions_bg"
+        android:cacheColorHint="#00000000"
+	>
+		
+	</ListView>
+	
+	
+</LinearLayout>

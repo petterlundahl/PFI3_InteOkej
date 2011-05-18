@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:id="@+id/browse_answer_answer"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="10dip"
+android:background="#FFFFFF"
+>
+<EditText
+android:layout_height="wrap_content"
+android:hint="@string/replyBoxHint"
+android:layout_width="fill_parent"
+android:id="@+id/editTextReplyBox"
+android:lines="3"
+android:gravity="top"
+android:capitalize="sentences"
+></EditText>
+<Button
+android:text="Skicka svar"
+android:id="@+id/answerButtonFooter"
+android:layout_width="200dip"
+android:layout_height="wrap_content"
+android:onClick="replyButtonClicked"></Button>
+
+</LinearLayout>
