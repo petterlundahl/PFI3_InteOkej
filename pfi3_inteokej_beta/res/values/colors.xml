@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<color name="question_sort_button">#ffdddddd</color>
+	<color name="question_sort_button_selected">#ffF2A0DC</color>
+	<color name="browse_questions_bg">#ffffffff</color>
+</resources>

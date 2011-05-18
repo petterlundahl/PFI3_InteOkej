@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+android:background="#FFFFFF"
+>
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:background="#FFFFFF"
+android:padding="10dip"
+android:gravity="center_vertical"
+>
+
+<Button android:id="@+id/avatarbutton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/avatar" android:clickable="false" ></Button>
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:background="#FFFFFF"
+android:paddingLeft="10dip"
+android:paddingRight="10dip"
+android:gravity="top"
+>
+
+     <TextView
+     android:text="Username" 
+     android:id="@+id/browse_answer_header_username_display" 
+     android:layout_width="wrap_content" 
+     android:layout_height="wrap_content"
+     android:textSize="14dp" android:textColor="#090909"
+     android:textStyle="bold"
+     android:gravity="center_vertical"
+     ></TextView>
+     
+      <TextView
+     android:text="Title (e.g. 'Värvare')" 
+     android:id="@+id/browse_answer_header_usertitle_display" 
+     android:layout_width="wrap_content" 
+     android:layout_height="wrap_content"
+     android:textSize="10dp" android:textColor="#090909"
+     android:gravity="center_vertical"
+     ></TextView>
+
+</LinearLayout>
+
+<!-- Crazy shit starts here -->
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_height="wrap_content"
+	android:gravity="right"	
+	android:layout_width="fill_parent">
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"	
+	>
+
+<!-- The support count with the blue ball as background begins here -->
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="50dip"
+	android:layout_height="60dip"
+	android:gravity="center"
+	>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:background="@drawable/blueball"
+		>
+	
+			<TextView
+			android:id="@+id/num_support_answerview"
+			android:textColor="#ffffff"
+			android:text="6"
+			android:layout_margin="4dip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="22dip"
+			/>
+		</LinearLayout>
+	<TextView
+		android:id="@+id/support_label_answerview"
+		android:textColor="#000000"
+		android:text="Stöd"
+		android:layout_margin="4dip"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="11dip"
+	/>
+	</LinearLayout>
+
+<!-- The support count with the blue ball as background ends here -->
+
+<!-- The reply count with the green ball as background begins here -->
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="50dip"
+	android:layout_height="60dip"
+	android:gravity="center"
+	>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:background="@drawable/greenball"
+		>
+	
+			<TextView
+			android:id="@+id/num_reply_answerview"
+			android:textColor="#ffffff"
+			android:text="6"
+			android:layout_margin="4dip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="22dip"
+			/>
+		</LinearLayout>
+	<TextView
+		android:id="@+id/reply_label_answerview"
+		android:textColor="#000000"
+		android:text="Svar"
+		android:layout_margin="4dip"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="11dip"
+	/>
+	</LinearLayout>
+
+<!-- The reply count with the green ball as background ends here -->
+
+<!-- The view count with the orange ball as background begins here -->
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="50dip"
+	android:layout_height="60dip"
+	android:gravity="center"
+	>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:background="@drawable/orangeball"
+		>
+	
+			<TextView
+			android:id="@+id/num_view_answerview"
+			android:textColor="#ffffff"
+			android:text="6"
+			android:layout_margin="4dip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="22dip"
+			/>
+		</LinearLayout>
+	<TextView
+		android:id="@+id/view_label_answerview"
+		android:textColor="#000000"
+		android:text="Visningar"
+		android:layout_margin="4dip"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="11dip"
+	/>
+	</LinearLayout>
+
+<!-- The view count with the orange ball as background ends here -->
+
+</LinearLayout>
+</LinearLayout>
+
+<!-- Crazy shit stops here! -->
+
+
+</LinearLayout>
+
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="horizontal"
+android:padding="10dip"
+android:background="#FFFFFF"
+>
+
+
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:background="#FFFFFF"
+    
+
+  >
+    <TextView
+     android:text="Question headline" 
+     android:id="@+id/questionViewHeadline" 
+     android:layout_width="wrap_content" 
+     android:layout_height="wrap_content"
+     android:textSize="20dp" android:textColor="#000000"
+     android:textStyle="bold"
+     android:paddingBottom="10dip"
+     android:paddingLeft="10dip"
+     android:paddingRight="10dip"></TextView>
+     
+       <TextView
+     android:text="Question content" 
+     android:id="@+id/questionViewContent" 
+     android:layout_width="wrap_content" 
+     android:layout_height="wrap_content"
+     android:textSize="14dp" android:textColor="#000000"
+     android:paddingBottom="10dip"
+     android:paddingLeft="10dip"></TextView>
+     
+      
+          
+</LinearLayout>
+
+
+ 
+  
+  
+ 
+ </LinearLayout>
+
+ <LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"  
+  android:gravity="right"
+  android:paddingRight="15dip"
+  android:paddingBottom="10dip"
+  android:paddingLeft="10dip"
+
+  >
+  
+  <nu.spiritusmundi.inteokej.android.SupportButton android:id="@+id/supportbutton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/supportbutton" android:gravity="right" > </nu.spiritusmundi.inteokej.android.SupportButton> 
+  
+  </LinearLayout>
+
+<TextView android:textColor="#000000" android:textSize="15dp" android:paddingTop="2dip" android:paddingLeft="10dip" android:background="#FFCCFF" android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/questionViewComment" android:layout_marginTop="1dip" android:text="Svar:" /> 
+
+</LinearLayout>

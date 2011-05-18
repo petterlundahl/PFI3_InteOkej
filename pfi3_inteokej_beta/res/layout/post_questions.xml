@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  >
+    <EditText android:hint="Rubrik" android:singleLine="true" android:id="@+id/questionHeadlineEditText" android:layout_width="fill_parent" android:capitalize="sentences" android:layout_height="wrap_content">
+    </EditText>
+    
+    <EditText android:hint="Skriv din fråga här" android:lines="5" android:id="@+id/questionContentEditText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:capitalize="sentences" android:gravity="top">
+    </EditText>
+    
+  
+    
+    <Button android:text="Skicka fråga" android:id="@+id/submitQuestionButton" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    </Button>
+  
+  
+</LinearLayout>
