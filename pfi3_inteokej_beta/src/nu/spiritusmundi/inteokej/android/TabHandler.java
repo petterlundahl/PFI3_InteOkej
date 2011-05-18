@@ -31,36 +31,42 @@ public class TabHandler extends TabActivity {
 
         intent = new Intent().setClass(this, BrowseQuestions.class);
 
-        spec = tabHost.newTabSpec("allafragor").setIndicator("Alla Frågor",
-                          res.getDrawable(R.drawable.allafragor_tab))
+        spec = tabHost.newTabSpec("allafragor").setIndicator("Frågor",
+                          res.getDrawable(R.drawable.allafragor_tab_icon))
                       .setContent(intent);
         tabHost.addTab(spec);
 
         intent = new Intent().setClass(this, PostQuestion.class);
         spec = tabHost.newTabSpec("stallfraga").setIndicator("Ställ Fråga",
-                          res.getDrawable(R.drawable.stallfraga_tab))
+                          res.getDrawable(R.drawable.stallfraga_tab_icon))
                       .setContent(intent);
         tabHost.addTab(spec);
 
         
         intent = new Intent().setClass(this, BrowseMyQuestions.class);
-        spec = tabHost.newTabSpec("minafragor").setIndicator("Mina Frågor",
-                          res.getDrawable(R.drawable.minafragor_tab)) 
+        spec = tabHost.newTabSpec("minafragor").setIndicator("Arkiv",
+                          res.getDrawable(R.drawable.minafragor_tab_icon)) 
                       .setContent(intent);
         tabHost.addTab(spec);
       
         intent = new Intent().setClass(this, ViewProfile.class);
-        spec = tabHost.newTabSpec("minprofil").setIndicator("Min Profil",
-                          res.getDrawable(R.drawable.minprofil_tab))
+        spec = tabHost.newTabSpec("minprofil").setIndicator("Profil",
+                          res.getDrawable(R.drawable.minprofil_tab_icon))
                       .setContent(intent);
         tabHost.addTab(spec);
         
-        tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#ffcccc"));
-        tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#ccccff"));
-        tabHost.getTabWidget().getChildAt(2).setBackgroundColor(Color.parseColor("#ccff99"));
-        tabHost.getTabWidget().getChildAt(3).setBackgroundColor(Color.parseColor("#ffff99"));
+        tabHost.getTabWidget().getChildAt(0).setBackgroundResource(R.drawable.allafragor_tab);
+        tabHost.getTabWidget().getChildAt(1).setBackgroundResource(R.drawable.stallfraga_tab);
+        tabHost.getTabWidget().getChildAt(2).setBackgroundResource(R.drawable.minafragor_tab);
+        tabHost.getTabWidget().getChildAt(3).setBackgroundResource(R.drawable.minprofil_tab);
         
-        tabHost.setCurrentTab(0);   
+        
+        for(int i = 0; i < 4; i ++){
+        	final TextView tv = (TextView) tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title); 
+            tv.setTextColor(Color.BLACK);
+        }
+        
+        tabHost.setCurrentTab(0);
         
     }
     

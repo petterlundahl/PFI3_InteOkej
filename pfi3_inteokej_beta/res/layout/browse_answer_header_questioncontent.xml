@@ -154,10 +154,9 @@ android:gravity="top"
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
-	android:layout_width="50dip"
 	android:layout_height="60dip"
 	android:gravity="center"
-	>
+	android:layout_width="wrap_content">
 
 	<LinearLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"

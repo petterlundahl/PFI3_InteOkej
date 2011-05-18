@@ -137,8 +137,9 @@ public class BrowseQuestions extends Activity implements OnItemClickListener, On
 		if(viewMode == VIEW_CATEGORY_TITLES){
 			viewMode = VIEW_CATEGORIES;
 			listView.setDividerHeight(0);
-			listView.setAdapter(new ArrayAdapter<String>(
-		            this, R.layout.browse_categories_item, R.id.category_title, FakeDatabase.getSortedTags()));
+			categories = FakeDatabase.getSortedTags();
+			listView.setAdapter(new CategoryAdapter(
+		            this, R.layout.browse_categories_item, categories));
 			
 		} else {
 			super.onBackPressed();

@@ -1,20 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:background="#ffffffff"
+	>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
+  android:gravity="center"
+  android:paddingLeft="30dip"
+  android:paddingRight="30dip"
+  android:paddingTop="30dip"
   >
-    <EditText android:hint="Rubrik" android:singleLine="true" android:id="@+id/questionHeadlineEditText" android:layout_width="fill_parent" android:capitalize="sentences" android:layout_height="wrap_content">
+    <EditText 
+    android:hint="Rubrik" 
+    android:singleLine="true" 
+    android:id="@+id/questionHeadlineEditText" 
+    android:layout_width="fill_parent" 
+    android:capitalize="sentences" 
+    android:layout_height="wrap_content">
     </EditText>
     
-    <EditText android:hint="Skriv din fråga här" android:lines="5" android:id="@+id/questionContentEditText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:capitalize="sentences" android:gravity="top">
+    <EditText 
+    android:hint="Skriv din fråga här" 
+    android:lines="5" 
+    android:id="@+id/questionContentEditText" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:capitalize="sentences" 
+    android:gravity="top">
     </EditText>
     
-  
+  	<LinearLayout
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="match_parent"
+  	android:layout_height="match_parent"
+  	android:gravity="right"
+    >
     
-    <Button android:text="Skicka fråga" android:id="@+id/submitQuestionButton" android:layout_width="fill_parent" android:layout_height="wrap_content">
-    </Button>
-  
+    	<Button 
+    		android:background="@drawable/skicka_knapp"
+    		android:text="Skicka fråga" 
+    		android:id="@+id/submitQuestionButton" 
+    		android:layout_width="150dip" 
+    		android:layout_height="50dip">
+    	</Button>
+  	
+  	</LinearLayout>
   
 </LinearLayout>
+
+</ScrollView>

@@ -21,8 +21,9 @@ android:capitalize="sentences"
 <Button
 android:text="Skicka svar"
 android:id="@+id/answerButtonFooter"
-android:layout_width="200dip"
-android:layout_height="wrap_content"
+android:layout_width="150dip"
+android:layout_height="50dip"
+android:background="@drawable/skicka_knapp"
 android:onClick="replyButtonClicked"></Button>
 
 </LinearLayout>
