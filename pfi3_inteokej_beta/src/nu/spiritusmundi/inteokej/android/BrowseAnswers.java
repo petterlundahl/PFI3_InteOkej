@@ -40,6 +40,7 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 	private TextView numAnswersText;
 	private TextView numViewsText;
 	private SupportButton supportButton;
+	private FlagButton flagButton;
 	private TextView timeStampText;
 	
 	private View viewFooter;
@@ -81,8 +82,12 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		
 		updateTextViews();
 		
-		FlagButton flagButton = (FlagButton) viewHeader.findViewById(R.id.flagbutton);
-		flagButton.setOnClickListener(this);		
+		flagButton = (FlagButton) viewHeader.findViewById(R.id.flagbutton);
+		flagButton.setOnClickListener(this);
+		
+		if(question.getUsersWhoFlaggedThis().indexOf(FakeDatabase.getCurrentUserName()) != -1){
+			flagButton.setBackgroundResource(R.drawable.flagged_button);
+		}
 		
 		timeStampText = (TextView) viewHeader.findViewById(R.id.timestamptext);
 		timeStampText.setText(question.getDate().toLocaleString());
@@ -151,7 +156,7 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 				           public void onClick(DialogInterface dialog, int id) {
 				       		FakeDatabase.flagQuestion(question);
 				       		Toast.makeText(BrowseAnswers.this, "Du har flaggat detta meddelande som olämpligt.", 2000);
-
+				       		flagButton.setBackgroundResource(R.drawable.flagged_button);
 
 				           }
 				       })

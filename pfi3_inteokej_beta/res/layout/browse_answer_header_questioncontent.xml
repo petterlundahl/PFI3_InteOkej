@@ -260,7 +260,7 @@ android:background="#FFFFFF"
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="horizontal"
   android:layout_width="wrap_content"
-  android:layout_height="fill_parent"  
+  android:layout_height="wrap_content"  
   android:gravity="left"
   android:paddingRight="15dip"
   android:paddingBottom="10dip"
@@ -278,7 +278,7 @@ android:background="#FFFFFF"
   >
   
   </TextView>
-  <nu.spiritusmundi.inteokej.android.FlagButton android:id="@+id/flagbutton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/flagbutton" android:gravity="left" > </nu.spiritusmundi.inteokej.android.FlagButton> 
+  <nu.spiritusmundi.inteokej.android.FlagButton android:id="@+id/flagbutton" android:layout_width="20px" android:layout_height="17px" android:background="@drawable/unflagged_button" android:gravity="left" > </nu.spiritusmundi.inteokej.android.FlagButton> 
   
    </LinearLayout>
   

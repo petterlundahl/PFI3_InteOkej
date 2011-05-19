@@ -141,8 +141,7 @@
   >
   
   </TextView>
-  
-	<nu.spiritusmundi.inteokej.android.FlagButton android:id="@+id/flaganswerbutton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/flagbutton" android:gravity="left" > </nu.spiritusmundi.inteokej.android.FlagButton> 
+	<nu.spiritusmundi.inteokej.android.FlagButton android:id="@+id/flaganswerbutton" android:layout_width="20px" android:layout_height="17px" android:background="@drawable/unflagged_button" android:gravity="left" > </nu.spiritusmundi.inteokej.android.FlagButton> 
 	
 	</LinearLayout>
 </LinearLayout>

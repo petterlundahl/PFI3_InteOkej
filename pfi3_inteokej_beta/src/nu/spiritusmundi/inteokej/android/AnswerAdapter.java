@@ -59,6 +59,11 @@ public class AnswerAdapter extends ArrayAdapter<Answer> implements OnClickListen
 			likeButton.setBackgroundResource(R.drawable.gilla);
 		}
 		
+		if(myAnswer.getUsersWhoFlaggedThis().indexOf(FakeDatabase.getCurrentUserName()) != -1)
+		{
+			flagButton.setBackgroundResource(R.drawable.flagged_button);
+		}
+		
 		flagButton.setPosition(position);
 		flagButton.setOnClickListener(this);
 		
@@ -69,7 +74,7 @@ public class AnswerAdapter extends ArrayAdapter<Answer> implements OnClickListen
 	//on answer flag button clicked
 	@Override
 	public void onClick(View view) {
-		FlagButton flagButton = (FlagButton) view;
+		final FlagButton flagButton = (FlagButton) view;
 		final Answer selectedAnswer = answers.get(flagButton.getPosition());
 		
 		if(selectedAnswer.getUsersWhoFlaggedThis().indexOf(FakeDatabase.getCurrentUserName()) == -1){
@@ -80,8 +85,8 @@ public class AnswerAdapter extends ArrayAdapter<Answer> implements OnClickListen
 			       .setPositiveButton("Ja", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
 			       		FakeDatabase.flagAnswer(selectedAnswer);
-			       		Toast.makeText(myParent, "Du har flaggat detta meddelande som olämpligt.", 2000);
-
+			       		Toast.makeText(myParent, "Du har flaggat detta svar som olämpligt.", 2000);
+			       		flagButton.setBackgroundResource(R.drawable.flagged_button);
 			           }
 			       })
 			       .setNegativeButton("Nej", new DialogInterface.OnClickListener() {
