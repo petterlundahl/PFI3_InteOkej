@@ -41,6 +41,12 @@ public class BrowseQuestions extends Activity implements OnItemClickListener, On
 	private final int VIEW_CATEGORY_TITLES = 2;
 	private int viewMode = VIEW_TITLES;
 	
+	int currentSubTab = 0;
+	
+	private String currentTag;
+	
+	public static boolean REDIRECTED_FROM_POST = false;
+	
 	private ArrayList<String> categories;
 	
 	@Override
@@ -50,22 +56,82 @@ public class BrowseQuestions extends Activity implements OnItemClickListener, On
 		
 		sortButtons = new Button[btnIds.length];
 		
+		listView = (ListView) findViewById(R.id.questionlist);
+		
+		listView.setOnItemClickListener(this);
+		
 		for(int i = 0; i < btnIds.length; i ++)
 		{
 			sortButtons[i] = (Button) findViewById(btnIds[i]);
 			sortButtons[i].setOnClickListener(this);
 		}
-		sortButtons[2].setBackgroundResource(R.color.question_sort_button_selected);
+		sortButtons[0].setBackgroundResource(R.drawable.markering);
 		
-		questions = FakeDatabase.getUnansweredQuestions();
+		loadLatestQuestions();
+	}
+	
+	public void loadLatestQuestions()
+	{
+		listView.setDividerHeight(1);
 		
-		listView = (ListView) findViewById(R.id.questionlist);
-		
-		listView.setOnItemClickListener(this);
+		questions = FakeDatabase.getLatestQuestions();
+
 		listView.setAdapter(new QuestionAdapter(
 	            this, R.layout.question_list_item, questions));
 		
+		setButtonSelected(sortButtons[0]);
+	}
+	
+	private void setButtonSelected(Button btn)
+	{
+		btn.setBackgroundResource(R.drawable.markering);
 		
+		for(int i = 0; i < sortButtons.length; i ++)
+		{
+			if(btn.getId() != btnIds[i]){
+				sortButtons[i].setBackgroundResource(R.color.question_sort_button);
+			}
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		if(REDIRECTED_FROM_POST){
+			loadLatestQuestions();
+			REDIRECTED_FROM_POST = false;
+		} else {
+		
+		switch(currentSubTab){
+		case 0:
+			loadLatestQuestions();
+			break;
+		case 1:
+			questions = FakeDatabase.getHottestQuestions();
+			listView.setAdapter(new QuestionAdapter(
+		            this, R.layout.question_list_item, questions));
+			break;
+		case 2:
+			questions = FakeDatabase.getUnansweredQuestions();
+			listView.setAdapter(new QuestionAdapter(
+		            this, R.layout.question_list_item, questions));
+			break;
+		case 3:
+			
+			if(viewMode == VIEW_CATEGORIES){
+				listView.setDividerHeight(0);
+				categories = FakeDatabase.getSortedTags();
+				listView.setAdapter(new CategoryAdapter(
+						this, R.layout.browse_categories_item, categories));
+			} else if(viewMode == VIEW_CATEGORY_TITLES){
+				questions = FakeDatabase.getFilteredQuestions(currentTag);
+				listView.setAdapter(new QuestionAdapter(
+			            this, R.layout.question_list_item, questions));
+			}
+			break;
+		}
+		}
+		
+		super.onResume();
 	}
 
 	@Override
@@ -74,8 +140,9 @@ public class BrowseQuestions extends Activity implements OnItemClickListener, On
 		if(viewMode == VIEW_CATEGORIES){
 			listView.setDividerHeight(1);
 			viewMode = VIEW_CATEGORY_TITLES;
+			currentTag = categories.get(index);
 			categories = FakeDatabase.getSortedTags();
-			questions = FakeDatabase.getFilteredQuestions(categories.get(index));
+			questions = FakeDatabase.getFilteredQuestions(currentTag);
 			listView.setAdapter(new QuestionAdapter(
 		            this, R.layout.question_list_item, questions));
 		} else {
@@ -91,35 +158,30 @@ public class BrowseQuestions extends Activity implements OnItemClickListener, On
 	@Override
 	public void onClick(View v) {
 		
-		v.setBackgroundResource(R.color.question_sort_button_selected);
-		
-		for(int i = 0; i < sortButtons.length; i ++)
-		{
-			if(v.getId() != btnIds[i]){
-				sortButtons[i].setBackgroundResource(R.color.question_sort_button);
-			}
-		}
+		setButtonSelected((Button) v);
 		
 		listView.setDividerHeight(1);
 		viewMode = VIEW_TITLES;
 		
 		switch(v.getId()){
 		case R.id.sortbtn01:
-			questions = FakeDatabase.getLatestQuestions();
-			listView.setAdapter(new QuestionAdapter(
-		            this, R.layout.question_list_item, questions));
+			currentSubTab = 0;
+			loadLatestQuestions();
 			break;
 		case R.id.sortbtn02:
+			currentSubTab = 1;
 			questions = FakeDatabase.getHottestQuestions();
 			listView.setAdapter(new QuestionAdapter(
 		            this, R.layout.question_list_item, questions));
 			break;
 		case R.id.sortbtn03:
+			currentSubTab = 2;
 			questions = FakeDatabase.getUnansweredQuestions();
 			listView.setAdapter(new QuestionAdapter(
 		            this, R.layout.question_list_item, questions));
 			break;
 		case R.id.sortbtn04:
+			currentSubTab = 3;
 			viewMode = VIEW_CATEGORIES;
 			listView.setDividerHeight(0);
 			categories = FakeDatabase.getSortedTags();

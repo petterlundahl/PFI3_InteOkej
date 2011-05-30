@@ -11,8 +11,8 @@ public class FakeDatabase {
 	private static ArrayList<Question> questions;
 	
 	private static String currentUserName = "";
-	
-	private static HashMap map;
+		
+	public static int userScore = 0;
 	
 	public FakeDatabase() {
 	}
@@ -22,6 +22,9 @@ public class FakeDatabase {
 	 */
 	public static void create()
 	{
+		
+		userScore = 38;
+		
 		questions = new ArrayList<Question>();
 		
 		//Fyll fake-databasen med meningsfullt innehåll enligt den här mallen:
@@ -123,6 +126,7 @@ public class FakeDatabase {
 	public static void postNewQuestion(Question question)
 	{
 		questions.add(question);
+		userScore += 20;
 	}
 	
 	/**
@@ -133,6 +137,7 @@ public class FakeDatabase {
 	public static void answerQuestion(Question question, Answer answer)
 	{
 		question.getAnswers().add(answer);
+		userScore += 10;
 	}
 	
 	/**
@@ -143,6 +148,7 @@ public class FakeDatabase {
 	{
 		if(question.getUsersWhoSupportsThis().indexOf(currentUserName) == -1){
 			question.support(currentUserName);
+			userScore += 3;
 			return true;
 		} else {
 			return false;
@@ -167,6 +173,7 @@ public class FakeDatabase {
 	{
 		if(answer.getUsersWhoLikeThis().indexOf(currentUserName) == -1){
 			answer.like(currentUserName);
+			userScore += 2;
 			return true;
 		} else {
 			return false;
@@ -219,6 +226,49 @@ public class FakeDatabase {
 		return hottestQuestions;
 	}
 	
+	public static ArrayList<Question> getMyQuestionsSorted() {
+		ArrayList<Question> retQuestions = new ArrayList<Question>();
+		
+		ArrayList<Question> questionsAlreadyRead = new ArrayList<Question>();
+		
+		for (int i = 0; i<questions.size();i++) {
+			boolean hasUnreadAnswers = false;
+			if (questions.get(i).getUserName().equals(currentUserName)){
+				
+				for(int n = 0; n < questions.get(i).getAnswers().size(); n++){
+					if(!questions.get(i).getAnswers().get(n).getReadByUser())
+						hasUnreadAnswers = true;
+					}
+				}
+			if(hasUnreadAnswers){
+				retQuestions.add(questions.get(i));
+			} else {
+				if(questions.get(i).getUserName().equals(currentUserName)){
+					questionsAlreadyRead.add(questions.get(i));
+				}
+			}
+		}
+		
+		for(int i = 0; i < questionsAlreadyRead.size(); i ++){
+			retQuestions.add(questionsAlreadyRead.get(i));
+		}
+
+		return retQuestions;
+	}
+	
+	public static int getUserQuestionCount()
+	{
+		int numQuestions = 0;
+		
+		for(Question question : questions){
+			if(question.getUserName().equals(currentUserName)){
+				numQuestions ++;
+			}
+		}
+		
+		return numQuestions;
+	}
+	
 	/**
 	 * 
 	 * @param userName
@@ -226,6 +276,36 @@ public class FakeDatabase {
 	public static void login(String userName)
 	{
 		currentUserName = userName;
+		
+		Question q1 = new Question("Jag får äckliga kommentarer på min bilddagbok", "lorem ipsum lorem ipsum lorem ipsum", userName, Tag.BLOGG);
+		Answer answer = new Answer("stackars dig. finns så många äckel!", "spammer666");
+		answer.setReadByUser();
+		answerQuestion(q1, answer);
+		questions.add(q1);
+		
+		Question q2 = new Question("blir mobbad i skolan :(", "lorem ipsum lorem ipsum lorem ipsum", userName, Tag.BLOGG);
+		Answer answer2 = new Answer("stackars dig. finns så många äckel!", "spammer666");
+		answerQuestion(q2, answer2);
+		questions.add(q2);
+		
+		Question q3 = new Question("Ska skjuta alla på min skola!!!", "lorem ipsum lorem ipsum lorem ipsum", userName, Tag.BLOGG);
+		Answer answer3 = new Answer("stackars dig. finns så många äckel!", "spammer666");
+		Answer answer32 = new Answer("stackars dig. finns så många äckel!", "spammer666");
+		answer3.setReadByUser();
+		answerQuestion(q3, answer3);
+		answer32.setReadByUser();
+		answerQuestion(q3, answer32);
+		questions.add(q3);
+		
+		Question q4 = new Question("Jag får äckliga kommentarer på min bilddagbok", "lorem ipsum lorem ipsum lorem ipsum", userName, Tag.BLOGG);
+		Answer answer4 = new Answer("stackars dig. finns så många äckel!", "spammer666");
+		Answer answer41 = new Answer("stackars dig. finns så många äckel!", "spammer666");
+		Answer answer42 = new Answer("stackars dig. finns så många äckel!", "spammer666");
+		answerQuestion(q4, answer4);
+		answerQuestion(q4, answer41);
+		answerQuestion(q4, answer42);
+		questions.add(q4);
+		
 	}
 	
 	/**
@@ -244,13 +324,7 @@ public class FakeDatabase {
 	
 	public static ArrayList<String> getSortedTags()
 	{
-		//ArrayList<String> sortedTags = new ArrayList<String>();
 		ArrayList<String> occuringTags = new ArrayList<String>();
-		
-		map = new HashMap();
-		
-		 
-		
 		
 		for(int i = 0; i < questions.size(); i ++){
 			if(occuringTags.indexOf(questions.get(i).getTag()) == -1)
@@ -258,14 +332,7 @@ public class FakeDatabase {
 				occuringTags.add(questions.get(i).getTag());
 			}
 			
-			map.put(questions.get(i).getTag(), questions.get(i));
 		}
-		
-		Set set = map.keySet();
-		
-		
-		
-		
 		
 		return occuringTags;
 	}

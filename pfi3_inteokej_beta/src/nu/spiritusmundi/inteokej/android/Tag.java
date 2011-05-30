@@ -12,7 +12,7 @@ public class Tag {
 	public static String ALKOHOL = "Alkohol";
 	public static String GRUPPTRYCK = "Grupptryck";
 	
-	public static String UNTAGGED = "";
+	public static String UNTAGGED = "Ingen kategori";
 	
-	public static String[] ALL_TAGS = {SEX, SPEL, FACEBOOK, TRAKASSERING, BLOGG, FOTO, VIOLENCE, SKOLA, ALKOHOL, GRUPPTRYCK};
+	public static String[] ALL_TAGS = {UNTAGGED, SEX, SPEL, FACEBOOK, TRAKASSERING, BLOGG, FOTO, VIOLENCE, SKOLA, ALKOHOL, GRUPPTRYCK};
 }

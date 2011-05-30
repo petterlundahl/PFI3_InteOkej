@@ -11,6 +11,8 @@ public class Answer {
 	private ArrayList<String> usersWhoFlaggedThis;
 	private Date date;
 	
+	private boolean readByUser = false;
+	
 	public Answer(String content, String userName) {
 		this.content = content;
 		this.userName = userName;
@@ -54,5 +56,15 @@ public class Answer {
 	public Date getDate()
 	{
 		return date;
+	}
+	
+	public void setReadByUser()
+	{
+		readByUser = true;
+	}
+	
+	public boolean getReadByUser()
+	{
+		return readByUser;
 	}
 }

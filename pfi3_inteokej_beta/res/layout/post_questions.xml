@@ -26,7 +26,7 @@
     
     <EditText 
     android:hint="Skriv din fråga här" 
-    android:lines="5" 
+    android:lines="8" 
     android:id="@+id/questionContentEditText" 
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
@@ -38,9 +38,17 @@
   	xmlns:android="http://schemas.android.com/apk/res/android"
   	android:layout_width="match_parent"
   	android:layout_height="match_parent"
-  	android:gravity="right"
-    >
+  	android:gravity="center_horizontal"
+    android:orientation="vertical">
     
+    	
+    
+    	<Spinner android:id="@+id/Spinner01" 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content" 
+    	android:prompt="@string/spinnerPrompt"
+    	>
+    	</Spinner>
     	<Button 
     		android:background="@drawable/skicka_knapp"
     		android:text="Skicka fråga" 
@@ -49,7 +57,8 @@
     		android:layout_height="50dip">
     	</Button>
   	
-  	</LinearLayout>
+  	
+</LinearLayout>
   
 </LinearLayout>
 

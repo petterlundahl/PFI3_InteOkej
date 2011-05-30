@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.os.Bundle;
 import android.util.Log;
@@ -77,7 +78,7 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		supportButton.setOnClickListener(this);
 		
 		if(question.getUsersWhoSupportsThis().indexOf(FakeDatabase.getCurrentUserName()) != -1){
-			supportButton.setBackgroundResource(R.drawable.stod);
+			supportButton.setBackgroundResource(R.drawable.supportbutton_selected);
 		} 
 		
 		updateTextViews();
@@ -92,6 +93,9 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		timeStampText = (TextView) viewHeader.findViewById(R.id.timestamptext);
 		timeStampText.setText(question.getDate().toLocaleString());
 		
+		
+		Button backButton = (Button) findViewById(R.id.back_button);
+		backButton.setOnClickListener(this);
 	}
 	
 	
@@ -139,7 +143,7 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		case R.id.supportbutton:
 			if(FakeDatabase.supportQuestion(question)){
 				Toast.makeText(this, "Nu har du givit ditt stöd till den här frågan!", 1000).show();
-				supportButton.setBackgroundResource(R.drawable.stod);
+				supportButton.setBackgroundResource(R.drawable.supportbutton_selected);
 				updateTextViews();
 				
 			} else {
@@ -172,6 +176,12 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 			} else {
 			Toast.makeText(this, "Du har redan flaggat den här frågan", 2000).show();
 			}
+			break;
+			
+		case R.id.back_button:
+			
+			onBackPressed();
+			
 			break;
 		}
 		

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content" 
+  android:background="#00ffffff"
+  android:orientation="horizontal"
+  android:padding="10dip"
+  >
+  <!-- Contains the question title: -->
+  	<LinearLayout
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="wrap_content"
+  	android:layout_height="fill_parent"
+  	android:orientation="vertical"
+  	android:gravity="center_vertical"
+  	android:paddingLeft="15dip"
+  	android:layout_weight="1">
+    
+                <TextView 
+                android:textColor="#000000" 
+                android:layout_height="wrap_content" 
+                android:textSize="18dip" 
+                android:id="@+id/archive_content_title"
+                android:text="Lorem ipsum ipsum lorem orem et cea bla bla bla" android:layout_width="wrap_content"/>
+                
+    </LinearLayout>
+    
+    <!-- contains the right half of the view; the bubble, num answers textview and label -->
+    <LinearLayout   
+    android:orientation="vertical" 
+    android:layout_height="fill_parent" 
+    android:layout_width="150dip" 
+    android:gravity="center_vertical"
+    >
+    
+    <!-- just the bubble background for the two textviews -->
+        <LinearLayout
+        android:layout_height="wrap_content" 
+        android:gravity="right" 
+        android:layout_width="fill_parent"
+        >
+    
+    	<!-- just the bubble background for the two textviews -->
+        <LinearLayout 
+        android:orientation="vertical" 
+        android:gravity="center" 
+        android:layout_height="wrap_content" 
+        android:layout_width="wrap_content" 
+        android:background="@drawable/archive_bubble_pink"
+        android:id="@+id/bubble">
+        
+        <TextView 
+        android:layout_width="wrap_content" 
+        android:text="6" 
+        android:textColor="#ffffff" 
+        android:layout_height="wrap_content" 
+        android:textSize="28dip"
+		android:id="@+id/num_answers"/>
+		
+		<TextView 
+		android:layout_width="wrap_content" 
+		android:id="@+id/new_answers_label" 
+		android:text="nya svar" 
+		android:textColor="#ffffff" 
+		android:layout_height="wrap_content" 
+		android:textSize="11dip"
+		/>
+</LinearLayout>
+</LinearLayout>                    
+                    
+          
+</LinearLayout>
+</LinearLayout>

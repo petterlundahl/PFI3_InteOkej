@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:background="#ff999999">
+	android:layout_height="fill_parent" android:background="#ffffffff">
 	
-		
-<!-- 		<include layout="@layout/lista_svar_question"/> -->
+	<Button
+	android:id="@+id/back_button"
+	android:text="Gå tillbaka"
+	android:gravity="center"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/backbutton"
+	
+	/>
+	
 	<ListView 
 		android:id="@+id/questionlist" 
 		android:layout_width="fill_parent"
-		android:layout_height="match_parent">
-	
+		android:layout_height="match_parent"
+		android:cacheColorHint="#00000000"
+		>
 
 	</ListView>
 </LinearLayout>

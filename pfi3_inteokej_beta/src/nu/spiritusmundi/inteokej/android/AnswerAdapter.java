@@ -48,6 +48,8 @@ public class AnswerAdapter extends ArrayAdapter<Answer> implements OnClickListen
 		likeButton.setTextView(numLikesText);
 
 		Answer myAnswer = answers.get(position);
+		
+		myAnswer.setReadByUser();
 
 		usernameTag.setText(myAnswer.getUserName());
 		answerLabel.setText(myAnswer.getContent());

@@ -3,4 +3,5 @@
     <string name="hello">Hello World!</string>
     <string name="app_name">InteOkej</string>
     <string name="replyBoxHint">Skriv här</string>
+    <string name="spinnerPrompt">Välj kategori</string>
 </resources>
