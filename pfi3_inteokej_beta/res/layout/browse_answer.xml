@@ -5,12 +5,12 @@
 	
 	<Button
 	android:id="@+id/back_button"
-	android:text="Gå tillbaka"
+	android:text="Tillbaka"
 	android:gravity="center"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:background="@drawable/backbutton"
-	
+	android:background="@drawable/back_button"
+	android:textSize="16dip"
 	/>
 	
 	<ListView 

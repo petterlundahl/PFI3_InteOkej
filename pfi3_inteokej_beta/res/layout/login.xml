@@ -14,7 +14,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:gravity="center" 
     >
     
-    <ImageView android:id="@+id/imageView1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:src="@drawable/logomindre"></ImageView>
+    <ImageView android:id="@+id/imageView1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:src="@drawable/logomindre2"></ImageView>
     <EditText android:id="@+id/username" android:hint="Användarnamn" android:layout_width="200dip" android:layout_height="50dip" android:layout_marginTop="10dip" android:singleLine="true"></EditText>
     <EditText 
     android:id="@+id/password_textview" 
@@ -27,8 +27,31 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     </EditText>
     
     <Button android:id="@+id/login_button" android:layout_height="50dip" android:layout_marginTop="10dip" android:text="Logga in" android:textStyle="bold" android:background="@drawable/skicka_knapp" android:layout_width="150dip"></Button>
-     <ImageView android:id="@+id/imageView3" android:paddingRight="10dip" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="right" android:src="@drawable/questionmark_loginscreen"></ImageView>
+     
+     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="bottom"
+    android:paddingRight="10dip"
+    >
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="100dip"
+    ></LinearLayout>
+     
+     <Button 
+     android:id="@+id/info_button"
+     android:layout_height="wrap_content" 
+     android:layout_width="wrap_content" 
+     android:layout_gravity="right"
+     android:background="@drawable/questionmark_loginscreen"
+     >
+     </Button>
 
+	</LinearLayout>
 </LinearLayout>
 
 

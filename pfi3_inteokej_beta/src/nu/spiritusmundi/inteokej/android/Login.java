@@ -33,6 +33,15 @@ public class Login extends Activity implements OnClickListener, OnEditorActionLi
 		passwordText = (EditText) findViewById(R.id.password_textview);
 		passwordText.setOnEditorActionListener(this);
 		loginButton.setOnClickListener(this);
+		
+		Button infoButton = (Button) findViewById(R.id.info_button);
+		infoButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(Login.this, "Nu skulle du ha skickas till hemsidan", 2000).show();
+			}
+		});
 	}
 	@Override
 	public void onClick(View arg0) {

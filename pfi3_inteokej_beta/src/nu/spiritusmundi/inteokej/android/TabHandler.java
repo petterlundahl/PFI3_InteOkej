@@ -116,7 +116,7 @@ public class TabHandler extends TabActivity {
 				  TabHandler.class);
 		  
 		  notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
+		  
 		  		  
 		  PendingIntent contentIntent =
 		   PendingIntent.getActivity(this, 0, notificationIntent, android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -133,8 +133,6 @@ public class TabHandler extends TabActivity {
 
     	@Override
     	public void run() {
-    		// TODO Auto-generated method stub
-    		
     		FakeDatabase.answerQuestion(FakeDatabase.getMyQuestionsSorted().get(0), new Answer("Jag råkade ut för samma sak för nåt år sen. Fick mycket stöd från min lärare, kan inte du snacka med din lärare?", "jimmy92"));
     		generateNotification();
     		myTimer.purge();

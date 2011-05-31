@@ -12,6 +12,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.os.Bundle;
 import android.util.Log;
@@ -95,6 +96,7 @@ public class BrowseAnswers extends Activity implements OnClickListener {
 		
 		
 		Button backButton = (Button) findViewById(R.id.back_button);
+		//backButton.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/MyriadWebPro.ttf"), Typeface.BOLD);
 		backButton.setOnClickListener(this);
 	}
 	
